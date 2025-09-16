@@ -44,7 +44,7 @@ async function callProvider(provider, apiKey, inputText, mode) {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${apiKey}` },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: instruction },
           { role: "user", content: inputText }

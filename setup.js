@@ -89,7 +89,7 @@ async function callProvider(provider, apiKey, inputText, mode) {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": \`Bearer \${apiKey}\` },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: instruction },
           { role: "user", content: inputText }
@@ -248,7 +248,7 @@ fs.writeFileSync(path.join(uiDir, "styles.css"), styles);
 const readme = `# AI Summarizer Anywhere
 
 Chrome extension to summarize highlighted text using multiple AI providers:
-- OpenAI (GPT-3.5 / GPT-4, requires API key)
+- OpenAI (GPT-4o mini / GPT-4, requires API key)
 - Hugging Face (free summarization models, API key optional)
 - Ollama (local models like LLaMA, Mistral — no key needed)
 
