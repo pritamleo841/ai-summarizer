@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>AI Summarizer Settings</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>AI Summarizer</h2>
+    <label>Provider</label>
+    <select id="provider">
+      <option value="openai">OpenAI</option>
+      <option value="huggingface">Hugging Face</option>
+      <option value="ollama">Ollama (local)</option>
+    </select>
+    <label>API Key</label>
+    <input id="apiKey" placeholder="Enter API key if required" type="password"/>
+    <label>Summary length</label>
+    <select id="summaryMode">
+      <option value="short">Short</option>
+      <option value="medium">Medium</option>
+      <option value="long">Long</option>
+    </select>
+    <div class="actions">
+      <button id="save">Save</button>
+      <button id="clear">Clear Key</button>
+    </div>
+    <p class="help">Highlight text, right-click and choose <b>Summarize with AI</b>.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

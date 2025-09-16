@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AI Summarizer Anywhere",
+  "description": "Summarize selected text with AI (OpenAI, Hugging Face, or Ollama).",
+  "version": "1.1",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "scripting",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ]
+}
