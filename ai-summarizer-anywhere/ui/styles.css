@@ -1,6 +1,25 @@
-body { font-family: sans-serif; padding: 10px; }
-.container { width: 240px; }
-label { display: block; margin-top: 8px; font-size: 13px; }
-input, select { width: 100%; padding: 5px; margin-top: 4px; }
-.actions { margin-top: 12px; display: flex; justify-content: space-between; }
-button { padding: 5px 10px; }
+body {
+  font-family: sans-serif;
+  padding: 10px;
+}
+h2 {
+  margin-top: 0;
+  color: #4A90E2;
+}
+label {
+  font-weight: bold;
+}
+input, select, button {
+  margin-top: 5px;
+  width: 100%;
+  padding: 6px;
+}
+button {
+  background: #4A90E2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #357ABD;
+}

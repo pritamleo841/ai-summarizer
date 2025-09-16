@@ -1,27 +1,16 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  const providerSelect = document.getElementById("provider");
-  const apiKeyInput = document.getElementById("apiKey");
-  const summaryModeSelect = document.getElementById("summaryMode");
-  const saveBtn = document.getElementById("save");
-  const clearBtn = document.getElementById("clear");
+// popup.js
 
-  const stored = await chrome.storage.sync.get(["provider", "apiKey", "summaryMode"]);
-  if (stored.provider) providerSelect.value = stored.provider;
-  if (stored.apiKey) apiKeyInput.value = stored.apiKey;
-  if (stored.summaryMode) summaryModeSelect.value = stored.summaryMode;
-
-  saveBtn.addEventListener("click", async () => {
-    await chrome.storage.sync.set({
-      provider: providerSelect.value,
-      apiKey: apiKeyInput.value,
-      summaryMode: summaryModeSelect.value
-    });
-    saveBtn.textContent = "Saved!";
-    setTimeout(() => saveBtn.textContent = "Save", 1200);
+window.onload = () => {
+  chrome.storage.sync.get(["provider", "apiKey"], (items) => {
+    if (items.provider) document.getElementById("provider").value = items.provider;
+    if (items.apiKey) document.getElementById("apiKey").value = items.apiKey;
   });
+};
 
-  clearBtn.addEventListener("click", async () => {
-    await chrome.storage.sync.remove(["apiKey"]);
-    apiKeyInput.value = "";
+document.getElementById("saveBtn").addEventListener("click", () => {
+  const provider = document.getElementById("provider").value;
+  const apiKey = document.getElementById("apiKey").value;
+  chrome.storage.sync.set({ provider, apiKey }, () => {
+    alert("✅ Settings saved!");
   });
 });
